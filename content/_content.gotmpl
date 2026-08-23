@@ -1,0 +1,62 @@
+{{- $photos := hugo.Data.photos -}}
+
+{{/* Generate individual photo pages */}}
+{{- range $photos -}}
+  {{- $page := dict
+    "kind" "page"
+    "path" (printf "zoom/%s" .slug)
+    "layout" "zoom-view"
+    "date" .date
+    "params" (dict
+      "data" .
+      "photo" true
+    )
+  -}}
+  {{- $.AddPage $page -}}
+{{- end -}}
+
+
+
+{{/* Generate the /albums/ page */}}
+{{- $albums := slice -}}
+{{- range $photos }}
+  {{- range .albums }}
+    {{- if not (in $albums .) }}
+      {{- $albums = $albums | append . }}
+    {{- end }}
+  {{- end }}
+{{- end -}}
+
+{{- $.AddPage (dict
+  "kind" "page"
+  "path" "albums"
+  "title" "Albums"
+  "layout" "album-overview"
+  "params" (dict
+    "albums" $albums
+  )
+) -}}
+
+
+
+{{/* Generate individual album pages */}}
+{{- range $albums }}
+  {{- $album := . -}}
+  {{- $albumPhotos := slice -}}
+
+  {{- range $photos }}
+    {{- if in .albums $album }}
+      {{- $albumPhotos = $albumPhotos | append . -}}
+    {{- end }}
+  {{- end -}}
+
+  {{- $.AddPage (dict
+    "kind" "page"
+    "path" (printf "albums/%s" $album)
+    "title" $album
+    "layout" "album-gallery"
+    "params" (dict
+      "photos" $albumPhotos
+    )
+  ) -}}
+{{- end -}}

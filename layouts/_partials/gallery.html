@@ -1,0 +1,19 @@
+<div class="gallery">
+  {{- range .photosToDisplay }}
+    <figure>
+      {{- $image := resources.Get (printf "photos/%s" .name) }}
+      {{- $thumb := $image.Fill "512x512 webp" }}
+      <a href="/zoom/{{ .slug }}">
+        <img
+          src="{{ $thumb.RelPermalink }}"
+          alt="{{ .caption }}"
+          loading="lazy"
+        >
+      </a>
+      <figcaption>
+        {{ truncate 50 .caption | markdownify }}
+      </figcaption>
+    </figure>
+  {{- end }}
+</div>
+

@@ -1,0 +1,25 @@
+{{- printf "<?xml version=\"1.0\" encoding=\"UTF-8\"?>" | safeHTML }}
+<rss version="2.0"
+  xmlns:media="http://search.yahoo.com/mrss/">
+
+  <channel>
+    <title>{{ .Site.Title }}</title>
+    <link>{{ .Site.Home.Permalink }}</link>
+    <description>{{ .Site.Params.description | default .Site.Title }}</description>
+
+    {{ range where site.RegularPages "Params.photo" true }}
+    <item>
+      <title>{{ .Title }}</title>
+      <link>{{ .Permalink }}</link>
+      <guid isPermaLink="true">{{ .Permalink }}</guid>
+      {{ with .Params.caption }}<description>{{ . | htmlEscape }}</description>{{ end }}
+      <pubDate>{{ .Date.Format "Mon, 02 Jan 2006 15:04:05 -0700" }}</pubDate>
+      {{ with .Params.image }}<media:content
+        url="{{ printf "%sphotos/%s" $.Site.BaseURL . }}"
+        medium="image"
+      />{{ end }}
+    </item>
+    {{ end }}
+
+  </channel>
+</rss>

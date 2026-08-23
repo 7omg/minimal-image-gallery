@@ -1,0 +1,25 @@
+{{ define "main" }}
+<div class="zoom-view">
+  {{- with .Params.data }}
+  <figure>
+    {{- $image := resources.Get (printf "photos/%s" .name) }}
+    {{- $optimized := $image.Resize "2000x webp" }}
+    <img
+      src="{{ $optimized.RelPermalink }}"
+      alt="{{ .caption }}"
+    >
+  <figcaption>{{ .caption | markdownify }}</figcaption>
+  {{- end }}
+
+  <p class="zoom-view-info pico-color-grey-500">{{ .Params.data.date }}</p>
+
+  {{- with .Params.data.albums }}
+  <p class="zoom-view-info pico-color-grey-500">Appears in 
+    {{ range $i, $album := . -}}
+      {{- if $i -}}, {{- end -}}
+      <a href="/albums/{{ $album }}/">{{- $album -}}</a>
+    {{- end }}
+  </p>
+  {{- end }}
+</div>
+{{- end }}

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="{{ site.Language.Locale }}" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.colors.min.css">
+  <link rel="icon" href="/favicon.png">
+  {{ $css := resources.Get "css/main.css" -}}
+  <link rel="stylesheet" href="{{ $css.RelPermalink }}">
+
+  {{- with .OutputFormats.Get "rss" }}
+  <link
+    rel="alternate"
+    type="{{ .MediaType.Type }}"
+    href="{{ .Permalink }}"
+    title="{{ site.Title }}"
+  >
+  {{ end -}}
+
+  <title>{{ .Site.Title }}</title>
+</head>
+<body>
+  {{ partial "header.html" . -}}
+  <main class="container">
+    {{ block "main" . }}{{ end }}
+  </main>
+</body>
