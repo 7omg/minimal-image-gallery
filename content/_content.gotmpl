@@ -1,4 +1,4 @@
-{{- $photos := hugo.Data.photos -}}
+{{- $photos := partial "photos" . -}}
 
 {{/* Generate individual photo pages */}}
 {{- range $photos -}}

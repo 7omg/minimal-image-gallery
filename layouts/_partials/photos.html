@@ -1,0 +1,11 @@
+{{/* Walk photos.yaml and autogenerate slugs from image hash if no slug was provided */}}
+{{- $photos := slice -}}
+{{- range hugo.Data.photos -}}
+  {{- $slug := .slug -}}
+  {{- if not $slug -}}
+    {{- $image := resources.Get (printf "photos/%s" .name) -}}
+    {{- $slug = substr (sha256 $image.Content) 0 10 -}}
+  {{- end -}}
+  {{- $photos = $photos | append (merge . (dict "slug" $slug)) -}}
+{{- end -}}
+{{- return $photos -}}

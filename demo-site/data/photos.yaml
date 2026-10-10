@@ -1,18 +1,16 @@
-- slug: macrolepiota
-  name: macrolepiota.jpg
+- name: macrolepiota.jpg
   caption: "By **Timothy A. Gonsalves**. Feel free to use my photos, but please mention me as the author. I would much appreciate if you send me an email tagooty@yahoo.com or write on my talk page, for my information. Please contact me before commercial use.Please do not upload an edited image here without consulting me. I would like to make corrections only at my own source to ensure that the changes improve the image and are preserved.Otherwise you may upload an edited image with a new name. Please use one of the templates derivative or extract. - Own work, CC BY-SA 4.0, https://commons.wikimedia.org/w/index.php?curid=195482128"
   date: 2026-08-08
   albums:
     - fungi
 
-- slug: keule
-  name: keulenfuss.jpg
+- name: keulenfuss.jpg
   caption: "By *Reinhold Möller Ermell* - Own work, CC BY-SA 4.0, https://commons.wikimedia.org/w/index.php?curid=181033736"
   date: 2026-08-09
   albums:
     - fungi
 
-- slug: kreuzsporiger-roetling
+- slug: explicit-slug-1
   name: roetling.jpg
   caption: "By Reinhold Möller Ermell - Own work, CC BY-SA 4.0, https://commons.wikimedia.org/w/index.php?curid=177496850"
   date: 2026-08-10
@@ -20,30 +18,27 @@
     - fungi
     - favorites
 
-- slug: lycoperdon
+- slug: explicit-slug-2
   name: lycoperdon.jpg
   caption: "By Holger Krisp - Own work, CC BY 3.0, https://commons.wikimedia.org/w/index.php?curid=18329917"
   date: 2026-08-11
   albums:
     - fungi
 
-- slug: plooivoetstuifzwam
-  name: plooivoetstuifzwam.jpg
+- name: plooivoetstuifzwam.jpg
   caption: "By Dominicus Johannes Bergsma - Own work, CC BY-SA 4.0, https://commons.wikimedia.org/w/index.php?curid=36565936"
   date: 2026-08-11
   albums:
     - fungi
     - favorites
 
-- slug: macrolepotia-procera
-  name: macrolepotia-procera.jpg
+- name: macrolepotia-procera.jpg
   caption: "By George Chernilevsky - Own work, Public Domain, https://commons.wikimedia.org/w/index.php?curid=45113042"
   date: 2026-08-11
   albums:
     - fungi
 
-- slug: amanita-muscaria
-  name: amanita-muscaria.jpg
+- name: amanita-muscaria.jpg
   caption: "By **Petar Milošević** - Own work, CC BY-SA 4.0, https://commons.wikimedia.org/w/index.php?curid=63294117"
   date: 2026-08-11
   albums:
