@@ -10,3 +10,7 @@ home = ["html", "rss"]
 [module]
   [[module.imports]]
     path = "github.com/7omg/minimal-image-gallery"
+
+[caches]
+  [caches.images]
+    dir = ':cacheDir/images'
