@@ -6,7 +6,7 @@
   <meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.colors.min.css">
-  <link rel="icon" href="/favicon.png">
+  <link rel="icon" href="{{ "favicon.png" | relURL }}">
   {{ $css := resources.Get "css/main.css" -}}
   <link rel="stylesheet" href="{{ $css.RelPermalink }}">
 

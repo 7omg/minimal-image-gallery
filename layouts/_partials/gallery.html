@@ -3,7 +3,7 @@
     <figure>
       {{- $image := resources.Get (printf "photos/%s" .name) }}
       {{- $thumb := $image.Fill "512x512 webp" }}
-      <a href="/zoom/{{ .slug }}">
+      <a href="{{ printf "zoom/%s" .slug | relURL }}">
         <img
           src="{{ $thumb.RelPermalink }}"
           alt="{{ .caption }}"

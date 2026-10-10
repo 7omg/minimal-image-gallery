@@ -2,7 +2,7 @@
 <h1>Albums</h1>
 <ul>
   {{- range sort .Params.albums }}
-    <li><a href="{{ printf "/albums/%s/" . }}">{{ . }}</a></li>
+    <li><a href="{{ printf "albums/%s/" . | relURL }}">{{ . }}</a></li>
   {{- end }}
 </ul>
 {{- end }}

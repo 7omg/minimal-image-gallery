@@ -17,7 +17,7 @@
   <p class="zoom-view-info pico-color-grey-500">Appears in 
     {{ range $i, $album := . -}}
       {{- if $i -}}, {{- end -}}
-      <a href="/albums/{{ $album }}/">{{- $album -}}</a>
+      <a href="{{ printf "/albums/%s/" $album | relURL }}">{{- $album -}}</a>
     {{- end }}
   </p>
   {{- end }}
