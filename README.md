@@ -1,6 +1,8 @@
 # Image Host
 Minimal static image sharing site based on hugo. Inspired by [ben brown](https://photos.benbrown.com/).
 
+[View demo page here.](https://7omg.github.io/minimal-image-gallery/)
+
 ## Files
 - `assets/`
     - `css/main.css`: main stylesheet
