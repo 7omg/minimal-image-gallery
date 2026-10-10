@@ -1,4 +1,7 @@
-{{/* Walk photos.yaml and autogenerate slugs from image hash if no slug was provided */}}
+{{/* Walk photos.yaml and autogenerate slugs from image hash if no slug was provided.
+     Album names are coerced to strings so unquoted numeric values (e.g. `- 1234`) work.
+     The photo's year is added as an album automatically. */}}
+
 {{- $photos := slice -}}
 {{- range hugo.Data.photos -}}
   {{- $slug := .slug -}}
@@ -6,6 +9,16 @@
     {{- $image := resources.Get (printf "photos/%s" .name) -}}
     {{- $slug = substr (sha256 $image.Content) 0 10 -}}
   {{- end -}}
-  {{- $photos = $photos | append (merge . (dict "slug" $slug)) -}}
+  {{- $albums := slice -}}
+  {{- range .albums -}}
+    {{- $albums = $albums | append (printf "%v" .) -}}
+  {{- end -}}
+  {{- with .date -}}
+    {{- $year := dateFormat "2006" . -}}
+    {{- if not (in $albums $year) -}}
+      {{- $albums = $albums | append $year -}}
+    {{- end -}}
+  {{- end -}}
+  {{- $photos = $photos | append (merge . (dict "slug" $slug "albums" $albums)) -}}
 {{- end -}}
 {{- return $photos -}}
