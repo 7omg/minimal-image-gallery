@@ -1,7 +1,7 @@
 {{ define "main" }}
 <h1>Albums</h1>
 <ul>
-  {{- range .Params.albums }}
+  {{- range sort .Params.albums }}
     <li><a href="{{ printf "/albums/%s/" . }}">{{ . }}</a></li>
   {{- end }}
 </ul>
