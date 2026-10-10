@@ -7,3 +7,6 @@ title = "Photos"
 [outputs]
 home = ["html", "rss"]
 
+[module]
+  [[module.imports]]
+    path = "github.com/7omg/minimal-image-gallery"
